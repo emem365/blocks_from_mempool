@@ -44,6 +44,8 @@ while(len(densities)>0):
     H = mempool[max_density]
     while(len(H)>0):
         txn = heap.heappop(H)
+        if(txn.txid in selected_transactions_map):
+            continue
         parents_weight = 0
         parents_fee = 0
         for p in txn.parents:
