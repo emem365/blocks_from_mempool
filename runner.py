@@ -103,11 +103,3 @@ mempool_parser.save_block(selected_transactions, newFileName)
 print('Transactions Block saved as ', newFileName)
 print('********************************************')
 print('********************************************')
-
-
-sum = 0
-sum2 = 0
-for x in selected_transactions:
-    sum+=orig_map[x].weight
-    sum2+=orig_map[x].fee
-print(sum, sum2)
