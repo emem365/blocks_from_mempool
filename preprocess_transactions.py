@@ -8,7 +8,7 @@ def _resolveParentsForTxn(txn: MempoolTransaction, map: dict, orig_map: dict):
 
     for parent in txn.parents:
         if(map[parent][1] == False and len(map[parent][0].parents) > 0):
-            _resolveParentsForTxn(map[parent][0], map)
+            _resolveParentsForTxn(map[parent][0], map, orig_map)
         parentTxn = map[parent][0]
         st = set(parentTxn.parents)
         setg = setg.union(st)
@@ -39,4 +39,4 @@ def resolveParents(lis: list):
             _resolveParentsForTxn(txn, map, orig_map)
 
     newLis = [x[0] for x in map.values()]
-    return newLis
+    return newLis, map, orig_map

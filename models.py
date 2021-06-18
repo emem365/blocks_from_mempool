@@ -13,3 +13,7 @@ class MempoolTransaction():
 
     def copy(self):
         return MempoolTransaction(self.txid, self.fee, self.weight, ';'.join(self.parents))
+    
+    def __lt__(self, other):
+        ''' Based on only Size. A transaction is less if its size is more'''
+        return self.weight>other.weight
