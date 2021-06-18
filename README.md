@@ -16,7 +16,7 @@ Your task is to write a program which reads a file mempool.csv, with the format:
  - txid is the transaction identifier
  - fee is the transaction fee
  - weight is the transaction weight
- - parent_txids is a list of the txids of the transaction’s unconfirmed parent transactions (confirmed parent transactions are not included in this list). It is ofthe form: <txid1>;<txid2>;...
+ - parent_txids is a list of the txids of the transaction’s unconfirmed parent transactions (confirmed parent transactions are not included in this list).
 
 The output from the program should be txids, separated by newlines, which make a valid block, maximizing the fee to the miner. Transactions MUST appear in order
 (no transaction should appear before one of its parents).
